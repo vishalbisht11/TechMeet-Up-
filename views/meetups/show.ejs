@@ -1,0 +1,52 @@
+<% include partials/header %>
+
+
+<div class="container">
+	<div class = "row">
+		<div class="col-md-9">
+			<div class="thumbnail">
+				<img class="img-responsive" src="<%= meetup.image %>" >   
+				<div class="caption-full" >
+					<h4 class="pull-right">24$</h4>
+					<h3><a href=""><%= meetup.name  %></a></h3>
+					<p><bold><i><%=meetup.description%></i></bold></p>
+				</div>
+			</div>
+			<div class="well">
+				<div class="text-right">
+					<a class="btn btn-success" href="/meetups/<%=meetup._id%>/comments/new" >Add New Comment</a>
+				</div>
+
+				<% meetup.comments.forEach(function(comment){ %>
+				<div class="row">
+					<div class="col-md-12">
+						<i><bold><%=comment.author %></bold></i>
+						<span class="pull-right">10 days ago</span>
+						<p>
+						<%= comment.text %>
+						</p>
+					</div>
+				</div>
+
+				<% })%>
+
+			</div>			
+		</div>
+	
+		<div class="col-md-3">
+			<p class="lead">TechMeetUp</p>
+			<div class="list-group">
+				<li class="list-group-item active">Info 1</li>
+				<li class="list-group-item">Info 1</li>
+				<li class="list-group-item">Info 1</li>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+<br><br><br><br><br><br>
+
+<% include partials/footer %>
